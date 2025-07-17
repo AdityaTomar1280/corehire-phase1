@@ -1,0 +1,781 @@
+/* FileUpload.css - CoreOps.ai Theme */
+
+/* --- Base & Variables --- */
+:root {
+  --coreops-primary: #0a2540; /* Deep Navy Blue */
+  --coreops-secondary: #00a4cc; /* Bright Teal/Cyan */
+  --coreops-accent: #00c4ff; /* Lighter Cyan for highlights/hovers */
+  --coreops-background: #f0f4f8; /* Light grey-blue background */
+  --coreops-surface: #ffffff; /* White for cards/surfaces */
+  --coreops-text-primary: #2c3e50; /* Dark grey for main text */
+  --coreops-text-secondary: #566573; /* Lighter grey for subtext */
+  --coreops-light-text: #ffffff;
+  --coreops-border-color: #dde4eb;
+  --coreops-error-bg: #fdeded;
+  --coreops-error-text: #d9534f;
+  --coreops-success-bg: #eaf7eb;
+  --coreops-success-text: #28a745;
+
+  --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --box-shadow-strong: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--coreops-background);
+  color: var(--coreops-text-primary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.coreops-app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Header --- */
+.coreops-main-header {
+  background: linear-gradient(135deg, var(--coreops-primary) 0%, #103a5f 100%);
+  color: var(--coreops-light-text);
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: var(--box-shadow-light);
+}
+.coreops-main-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5em;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.coreops-subtitle {
+  font-size: 1.1em;
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Main Layout --- */
+.coreops-file-upload-layout {
+  display: grid;
+  grid-template-columns: 1fr; /* Stack by default */
+  gap: 30px;
+  padding: 30px 20px;
+  flex-grow: 1; /* Allow this section to take available space */
+  max-width: 1300px; /* Max width for the content grid */
+  margin: 0 auto; /* Center the grid */
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .coreops-file-upload-layout {
+    grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+  }
+}
+
+/* --- Upload Section Styling (Cards) --- */
+.coreops-upload-section {
+  background-color: var(--coreops-surface);
+  padding: 25px 30px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-light);
+  display: flex;
+  flex-direction: column;
+}
+.coreops-section-title {
+  color: var(--coreops-primary);
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--coreops-border-color);
+  display: flex;
+  align-items: center;
+}
+.coreops-section-title .fa-users,
+.coreops-section-title .fa-briefcase {
+  margin-right: 12px;
+  color: var(--coreops-secondary);
+}
+
+/* --- Drag and Drop Area --- */
+.coreops-drag-drop-area {
+  border: 2px dashed var(--coreops-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 30px;
+  text-align: center;
+  background-color: #f8fcff; /* Lighter than main bg for contrast */
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.coreops-drag-drop-area.drag-over {
+  background-color: #e6f7ff;
+  border-color: var(--coreops-accent);
+}
+.coreops-upload-icon {
+  font-size: 3em;
+  color: var(--coreops-secondary);
+  margin-bottom: 15px;
+}
+.coreops-upload-icon.small {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+}
+.drag-drop-text {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--coreops-text-primary);
+  margin: 5px 0;
+}
+.drag-drop-text.small {
+  font-size: 1em;
+}
+.drag-drop-subtext {
+  font-size: 0.85em;
+  color: var(--coreops-text-secondary);
+  margin-bottom: 15px;
+}
+.drag-drop-subtext.small {
+  margin-bottom: 10px;
+}
+.drag-drop-or {
+  display: block;
+  margin: 15px auto;
+  color: var(--coreops-text-secondary);
+  font-size: 0.9em;
+  position: relative;
+  width: 50%;
+}
+.drag-drop-or::before,
+.drag-drop-or::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 1px;
+  background-color: var(--coreops-border-color);
+}
+.drag-drop-or::before {
+  left: 0;
+}
+.drag-drop-or::after {
+  right: 0;
+}
+
+.coreops-drag-drop-area-small {
+  padding: 20px;
+}
+
+/* --- Buttons --- */
+.coreops-button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.coreops-button {
+  padding: 12px 24px;
+  border-radius: var(--border-radius-sm);
+  border: none;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.coreops-button-primary {
+  background-color: var(--coreops-secondary);
+  color: var(--coreops-light-text);
+}
+.coreops-button-primary:hover {
+  background-color: var(--coreops-accent);
+  box-shadow: 0 4px 10px rgba(0, 196, 255, 0.3);
+}
+.coreops-button-secondary {
+  background-color: var(--coreops-surface);
+  color: var(--coreops-secondary);
+  border: 1px solid var(--coreops-secondary);
+}
+.coreops-button-secondary:hover {
+  background-color: #e6f7ff;
+  border-color: var(--coreops-accent);
+  color: var(--coreops-accent);
+}
+.coreops-button-small {
+  padding: 8px 16px;
+  font-size: 0.9em;
+}
+
+.analyze-button {
+  width: auto; /* Fit content */
+  min-width: 220px;
+  justify-content: center;
+  font-size: 1.1em;
+}
+.analyze-button .fa-cogs,
+.analyze-button .fa-paper-plane {
+  margin-right: 10px;
+}
+.analyze-button.loading {
+  background-color: var(--coreops-accent);
+  cursor: wait;
+}
+.analyze-button.loading span {
+  margin-left: 10px;
+}
+.analyze-button:disabled {
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.analyze-button:disabled:hover {
+  background-color: #bdc3c7; /* Keep disabled style on hover */
+}
+
+/* --- Selected Files List --- */
+.coreops-selected-files-list {
+  margin-top: 25px;
+}
+.coreops-selected-files-list h4 {
+  font-size: 0.95em;
+  color: var(--coreops-text-secondary);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.coreops-selected-files-list.single-file h4 {
+  margin-top: 15px; /* More space for single JD file */
+}
+
+.coreops-file-item {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  border: 1px solid var(--coreops-border-color);
+}
+.coreops-file-icon {
+  color: var(--coreops-secondary);
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+.coreops-file-name {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 10px;
+  color: var(--coreops-text-primary);
+}
+.coreops-remove-file-button {
+  background: none;
+  border: none;
+  color: var(--coreops-error-text);
+  cursor: pointer;
+  font-size: 1.1em;
+  padding: 5px;
+  transition: color 0.2s ease;
+}
+.coreops-remove-file-button:hover {
+  color: #a83b36;
+}
+
+/* --- Job Description Section Specifics --- */
+.coreops-subsection-title {
+  font-size: 1.1em;
+  color: var(--coreops-text-primary);
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+.coreops-structured-jd-helpers {
+  padding: 20px;
+  border: 1px solid var(--coreops-border-color);
+  border-radius: var(--border-radius-md);
+  background-color: #fdfdff; /* Slightly different for visual separation */
+  margin-bottom: 25px;
+}
+.coreops-jd-input-group {
+  margin-bottom: 20px;
+}
+.coreops-jd-input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--coreops-text-secondary);
+  font-size: 0.9em;
+}
+.coreops-select,
+.coreops-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--coreops-border-color);
+  border-radius: var(--border-radius-sm);
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  background-color: var(--coreops-surface);
+  color: var(--coreops-text-primary);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.coreops-select:focus,
+.coreops-textarea:focus {
+  outline: none;
+  border-color: var(--coreops-secondary);
+  box-shadow: 0 0 0 2px rgba(0, 196, 255, 0.2);
+}
+.coreops-skills-checkbox-group {
+  max-height: 180px;
+  overflow-y: auto;
+  border: 1px solid var(--coreops-border-color);
+  padding: 15px;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--coreops-surface);
+}
+/* Custom scrollbar for skills list */
+.coreops-skills-checkbox-group::-webkit-scrollbar {
+  width: 6px;
+}
+.coreops-skills-checkbox-group::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.coreops-skills-checkbox-group::-webkit-scrollbar-thumb {
+  background: var(--coreops-border-color);
+  border-radius: 10px;
+}
+.coreops-skills-checkbox-group::-webkit-scrollbar-thumb:hover {
+  background: var(--coreops-text-secondary);
+}
+
+.coreops-skill-checkbox-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.coreops-skill-checkbox-item input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.1);
+  accent-color: var(--coreops-secondary); /* Modern way to color checkboxes */
+  cursor: pointer;
+}
+.coreops-skill-checkbox-item label {
+  margin-bottom: 0;
+  font-weight: 400;
+  color: var(--coreops-text-primary);
+  font-size: 0.9em;
+  cursor: pointer;
+}
+.coreops-jd-main-textbox-section {
+  margin-bottom: 25px;
+}
+.coreops-jd-separator {
+  text-align: center;
+  font-weight: 500;
+  color: var(--coreops-text-secondary);
+  margin: 30px 0;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  position: relative;
+}
+.coreops-jd-separator span {
+  background-color: var(--coreops-surface); /* Match card background */
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+.coreops-jd-separator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--coreops-border-color);
+  z-index: 0;
+}
+
+/* --- Upload Analyze Section --- */
+.coreops-upload-analyze-section {
+  text-align: center;
+  padding: 20px 0 30px 0; /* More padding at the bottom */
+}
+.coreops-error-message {
+  color: var(--coreops-error-text);
+  background-color: var(--coreops-error-bg);
+  border: 1px solid var(--coreops-error-text);
+  padding: 15px 20px;
+  border-radius: var(--border-radius-md);
+  margin: 0 auto 25px auto; /* Centered */
+  text-align: left;
+  max-width: 600px;
+  box-shadow: var(--box-shadow-light);
+}
+
+/* --- Footer --- */
+.coreops-footer {
+  background-color: var(--coreops-primary);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85em;
+  margin-top: auto; /* Push footer to bottom if content is short */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .coreops-main-header h1 {
+    font-size: 2em;
+  }
+  .coreops-subtitle {
+    font-size: 1em;
+  }
+  .coreops-file-upload-layout {
+    padding: 20px 15px;
+    gap: 25px;
+  }
+  .coreops-upload-section {
+    padding: 20px;
+  }
+  .coreops-section-title {
+    font-size: 1.3em;
+  }
+  .coreops-drag-drop-area {
+    padding: 20px;
+  }
+  .coreops-button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .coreops-button {
+    width: 100%;
+  }
+  .analyze-button {
+    width: 90%;
+  }
+}
+
+/* FileUpload.css - CoreOps.ai Theme (Concise & Scrollable Updates) */
+
+/* --- Ensure base from previous theming is present --- */
+/* :root { ... CoreOps variables ... } */
+/* body, .coreops-app-container, .coreops-main-header, etc. */
+
+/* --- Main Content Wrapper for better height control --- */
+.coreops-main-content {
+  flex-grow: 1; /* Allows this area to expand and push footer down */
+  display: flex; /* To center the layout if needed */
+  flex-direction: column; /* Stack layout inside */
+  width: 100%;
+}
+
+.coreops-file-upload-layout.compact-layout {
+  padding: 20px 15px; /* Reduced padding */
+  gap: 20px; /* Reduced gap between sections */
+  max-width: 1200px; /* Adjusted max-width if needed, or remove for full width */
+}
+
+.coreops-upload-section {
+  padding: 20px; /* Reduced padding inside sections */
+  /* Consider removing flex-grow from individual sections if not needed for equal height */
+}
+
+.coreops-section-title {
+  font-size: 1.3em; /* Slightly smaller section titles */
+  margin-bottom: 15px; /* Reduced margin */
+  padding-bottom: 10px; /* Reduced padding */
+}
+.coreops-section-title .fa-users,
+.coreops-section-title .fa-briefcase {
+  margin-right: 10px; /* Slightly less margin */
+}
+
+/* --- Drag and Drop Area - Concise --- */
+.coreops-drag-drop-area {
+  padding: 20px; /* Reduced padding */
+  margin-bottom: 15px; /* Reduced margin */
+}
+.coreops-upload-icon {
+  font-size: 2.5em; /* Slightly smaller */
+  margin-bottom: 10px;
+}
+.coreops-upload-icon.small {
+  /* For JD D&D area */
+  font-size: 2em;
+  margin-bottom: 8px;
+}
+.drag-drop-text {
+  font-size: 1em; /* Slightly smaller */
+  margin: 3px 0;
+}
+.drag-drop-text.small {
+  font-size: 0.9em;
+}
+.drag-drop-subtext {
+  font-size: 0.8em; /* Slightly smaller */
+  margin-bottom: 10px;
+}
+.drag-drop-subtext.small {
+  margin-bottom: 8px;
+}
+.drag-drop-or {
+  margin: 10px auto; /* Reduced margin */
+}
+.coreops-button-group {
+  margin-top: 8px; /* Reduced margin */
+}
+.coreops-button {
+  padding: 10px 20px; /* Slightly smaller buttons */
+  font-size: 0.95em;
+}
+.coreops-button-small {
+  padding: 7px 14px;
+  font-size: 0.85em;
+}
+
+/* --- SCROLLABLE Selected Resumes List --- */
+.coreops-selected-files-container {
+  margin-top: 15px; /* Space above the list container */
+  display: flex;
+  flex-direction: column;
+  /* Optional: if you want the list to not exceed the height of the JD section for example */
+  /* This is tricky without knowing the exact heights, adjust max-height as needed */
+}
+.coreops-selected-files-title {
+  /* New class for the "Selected Resumes" title */
+  font-size: 0.9em;
+  color: var(--coreops-text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+  padding-left: 5px; /* Align with file items if they have padding */
+}
+.coreops-selected-files-list.scrollable {
+  max-height: 200px; /* ADJUST THIS VALUE: Max height before scrolling starts */
+  overflow-y: auto;
+  border: 1px solid var(--coreops-border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 10px;
+  background-color: #fbfdff; /* Slightly different background for the scrollable area */
+}
+.coreops-file-item {
+  padding: 8px 12px; /* Slightly reduced padding */
+  font-size: 0.85em; /* Slightly smaller font for file items */
+  /* other styles remain from previous theme */
+}
+.coreops-file-icon {
+  font-size: 1.1em; /* Adjust if needed */
+  margin-right: 8px;
+}
+.coreops-remove-file-button {
+  font-size: 1em; /* Adjust if needed */
+}
+
+/* --- Job Description Section - Concise --- */
+.coreops-subsection-title {
+  font-size: 1em; /* Slightly smaller */
+  margin-bottom: 10px;
+}
+.coreops-structured-jd-helpers {
+  padding: 15px; /* Reduced padding */
+  margin-bottom: 15px; /* Reduced margin */
+}
+.coreops-jd-input-group {
+  margin-bottom: 15px; /* Reduced margin */
+}
+.coreops-jd-input-group label {
+  margin-bottom: 6px; /* Reduced margin */
+  font-size: 0.85em; /* Slightly smaller */
+}
+.coreops-select,
+.coreops-textarea {
+  padding: 10px 12px; /* Reduced padding */
+  font-size: 0.9rem; /* Slightly smaller */
+}
+.coreops-skills-checkbox-group.scrollable {
+  /* Added scrollable class for consistency if used */
+  max-height: 150px; /* ADJUST THIS for skills list */
+  overflow-y: auto;
+  padding: 10px; /* Reduced padding */
+  /* Other styles from previous theming apply */
+}
+.coreops-skill-checkbox-item {
+  margin-bottom: 8px; /* Reduced margin */
+}
+.coreops-skill-checkbox-item label {
+  font-size: 0.85em; /* Slightly smaller */
+}
+.coreops-jd-main-textbox-section {
+  margin-bottom: 15px; /* Reduced margin */
+}
+.coreops-textarea {
+  min-height: 100px; /* Allow textarea to be a bit shorter */
+}
+.coreops-jd-separator {
+  margin: 20px 0; /* Reduced margin */
+}
+
+/* --- Upload Analyze Section --- */
+.coreops-upload-analyze-section {
+  padding: 15px 0 25px 0; /* Reduced padding */
+}
+.coreops-error-message {
+  padding: 12px 18px; /* Slightly reduced padding */
+  margin: 0 auto 20px auto;
+  font-size: 0.9em;
+}
+.analyze-button {
+  font-size: 1em; /* Slightly smaller analyze button */
+  padding: 12px 22px;
+}
+.analyze-button .fa-cogs,
+.analyze-button .fa-paper-plane,
+.analyze-button .fa-spinner {
+  margin-right: 8px;
+  font-size: 1em; /* Ensure icon size matches text */
+}
+.analyze-button .fa-spinner + span {
+  /* Spinner text */
+  font-size: 1em;
+}
+
+/* --- Footer --- */
+.coreops-footer {
+  padding: 15px; /* Reduced padding */
+  font-size: 0.8em; /* Slightly smaller */
+  /* margin-top: auto; -- this is handled by .coreops-main-content flex-grow */
+}
+
+/* Responsive adjustments - ensure they don't make things too cramped */
+@media (max-width: 768px) {
+  .coreops-file-upload-layout.compact-layout {
+    padding: 15px 10px;
+  }
+  .coreops-upload-section {
+    padding: 15px;
+  }
+  .coreops-section-title {
+    font-size: 1.2em;
+  }
+  /* Further adjustments for smaller screens if needed */
+}
+
+/* FileUpload.css - CoreOps.ai Theme (Additions for Auto-Generated JD) */
+
+/* ... (your existing CoreOps.ai theme styles) ... */
+
+/* --- Auto-Generated JD Section --- */
+.coreops-jd-auto-generator {
+  padding: 20px;
+  border: 1px solid var(--coreops-border-color);
+  border-radius: var(--border-radius-md);
+  background-color: #f8fcff; /* Slightly different background from main card */
+  margin-bottom: 20px;
+}
+
+.coreops-jd-auto-generator .coreops-subsection-title {
+  margin-top: 0;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--coreops-primary);
+}
+.coreops-jd-auto-generator .coreops-subsection-title .fa-cogs {
+  /* Icon for this section */
+  color: var(--coreops-secondary);
+}
+
+.coreops-jd-auto-generator .coreops-jd-input-group {
+  margin-bottom: 15px;
+}
+.coreops-jd-auto-generator .coreops-jd-input-group:last-child {
+  margin-bottom: 5px;
+}
+
+.coreops-helper-text {
+  font-size: 0.85em;
+  color: var(--coreops-text-secondary);
+  margin-top: 10px;
+  padding-left: 5px; /* Align with inputs if they have padding */
+  font-style: italic;
+}
+
+/* --- Separator Text --- */
+/* Ensure this is styled well if it wasn't fully emphasized before */
+.coreops-jd-separator {
+  text-align: center;
+  font-weight: 500;
+  color: var(--coreops-text-secondary);
+  margin: 25px 0; /* More distinct vertical spacing */
+  font-size: 0.85em; /* Slightly smaller if needed */
+  text-transform: uppercase;
+  position: relative;
+}
+.coreops-jd-separator span {
+  background-color: var(
+    --coreops-surface
+  ); /* Match card background to "cut through" the line */
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+.coreops-jd-separator::before {
+  /* The line itself */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--coreops-border-color);
+  z-index: 0;
+}
+
+/* --- Main JD Textbox Section --- */
+/* Ensure the title for this section is clear */
+.coreops-jd-main-textbox-section .coreops-subsection-title {
+  /* Styles from previous response */
+}
+.coreops-textarea {
+  /* Ensure min-height is appropriate */
+  min-height: 150px; /* Or adjust as needed for generated content */
+}
+
+/* --- Direct JD File Upload Area --- */
+.coreops-jd-file-upload-area .coreops-subsection-title {
+  /* Styles for its title */
+  color: var(--coreops-primary);
+  font-size: 1.05em;
+  /* ... other styles from previous response */
+}
+.coreops-jd-file-upload-area .coreops-subsection-title .fa-cloud-upload-alt {
+  color: var(--coreops-secondary);
+}
+
+/* --- General disabled state for select when another JD method is active --- */
+.coreops-select[disabled] {
+  background-color: #e9ecef; /* Standard disabled color */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.coreops-textarea[disabled] {
+  /* If you decide to disable textarea during generation */
+  background-color: #f0f4f8;
+  opacity: 0.8;
+}

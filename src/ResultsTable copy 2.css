@@ -1,0 +1,305 @@
+.full-page-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f0ff;
+  color: #333;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.results-table-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px; /* Reduced padding */
+  width: 98%;
+  max-width: none;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+.results-table-container h2 {
+  color: #673ab7;
+  font-size: 2.2em;
+  margin-bottom: 24px;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-table-container .table-icon {
+  margin-right: 12px;
+}
+
+/* Table Styles */
+.results-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  flex-grow: 1;
+  display: table;
+  table-layout: auto;
+  min-width: 100%; /* Ensure table takes full width */
+}
+
+.results-table-container thead {
+  flex-shrink: 0;
+}
+
+.results-table-container th,
+.results-table-container td {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 10px; /* Slightly reduced padding */
+  text-align: left;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.results-table-container th {
+  background-color: #7e57c2;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9em;
+  white-space: nowrap; /* Prevent header text wrapping */
+}
+
+.results-table-container th .header-icon {
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+
+.name {
+  color: #673ab7;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.score {
+  color: #673ab7;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.results-table-container tbody {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.results-table-container tbody tr:hover {
+  background-color: #f3e5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.results-table-container td {
+  font-size: 0.9em;
+  font-weight: normal;
+}
+
+/* Resume summary cell specific styling */
+.results-table-container td:nth-child(5) {
+  /* The resume summary column */
+  font-size: 0.85em;
+  min-width: 250px;
+  max-width: none;
+  line-height: 1.4;
+  color: #555;
+  white-space: normal;
+  word-break: normal;
+}
+
+/* Highlighted Row */
+.results-table-container .highlighted-row {
+  background-color: #e1bee7 !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.results-table-container .highlighted-row:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Filter section */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Bulk actions container */
+.bulk-actions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  background-color: #f0e7f7;
+  padding: 12px;
+  border-radius: 6px;
+  align-items: center;
+}
+
+.bulk-actions-container .selected-count {
+  margin-right: auto;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #673ab7;
+}
+
+/* Email Button */
+.results-table-container .email-button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 4px 0;
+  cursor: pointer;
+  font-size: 0.85em;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  white-space: nowrap;
+}
+
+.results-table-container .email-button:hover {
+  background-color: #303f9f;
+  transform: scale(1.03);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.results-table-container .email-button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.results-table-container .email-button svg {
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+
+/* Checkbox styling */
+.results-table-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #673ab7;
+}
+
+/* App container - full width */
+.app-container {
+  width: 100vw; /* Full viewport width */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling on the page level */
+}
+
+/* Save notification styles */
+.save-notification {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-left: auto;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.save-notification.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.save-notification.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.save-notification svg {
+  margin-right: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  /* Responsive table layout */
+  .results-table-container table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .results-table-container td:nth-child(5) {
+    /* Resume summary column */
+    white-space: normal;
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-table-container {
+    padding: 10px;
+  }
+
+  .results-table-container h2 {
+    font-size: 1.6em;
+    margin-bottom: 16px;
+  }
+
+  .results-table-container th,
+  .results-table-container td {
+    padding: 8px 6px;
+    font-size: 0.8em;
+  }
+
+  .results-table-container td:nth-child(5) {
+    /* Resume summary column */
+    min-width: 250px;
+    white-space: normal;
+  }
+
+  .results-table-container .email-button {
+    padding: 6px 10px;
+    font-size: 0.75em;
+  }
+
+  .bulk-actions-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .bulk-actions-container .selected-count {
+    margin-bottom: 8px;
+  }
+}

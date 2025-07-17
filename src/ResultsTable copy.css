@@ -1,0 +1,508 @@
+:root {
+  --primary-color: #673ab7;
+  --primary-light: #7e57c2;
+  --primary-dark: #5e35b1;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-gray: #f8f9fa;
+  --mid-gray: #e9ecef;
+  --dark-gray: #6c757d;
+  --border-color: #dee2e6;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+.app-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.full-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Results Table Container */
+.results-table-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  padding: 24px;
+  margin-bottom: 30px;
+}
+
+.results-table-container h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.table-icon {
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+.header-icon {
+  margin-right: 5px;
+  opacity: 0.8;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background-color: #f5f2fa;
+  border-bottom: 2px solid var(--primary-light);
+}
+
+th {
+  text-align: left;
+  padding: 14px 12px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f5f2fa;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+td.name {
+  font-weight: 500;
+}
+
+td.score {
+  font-weight: 600;
+  text-align: center;
+}
+
+tbody tr {
+  transition: background-color var(--transition-speed);
+}
+
+tbody tr:hover {
+  background-color: rgba(103, 58, 183, 0.05);
+}
+
+.highlighted-row {
+  background-color: rgba(126, 87, 194, 0.08);
+}
+
+.highlighted-row:hover {
+  background-color: rgba(126, 87, 194, 0.12);
+}
+
+/* Filter Section */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f5ff;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-color);
+}
+
+/* Input range styling */
+input[type="range"] {
+  height: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #ddd;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: var(--primary-dark);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  border: none;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "\2713";
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"]:hover {
+  border-color: var(--primary-light);
+}
+
+/* Button styles */
+.email-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 4px;
+  transition: all var(--transition-speed);
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.email-button svg {
+  margin-right: 6px;
+}
+
+.email-button:hover {
+  background-color: var(--primary-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.email-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.email-button:disabled {
+  background-color: var(--dark-gray);
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+/* Bulk actions container */
+.bulk-actions-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.selected-count {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-right: auto;
+  font-weight: 500;
+}
+
+/* Save notification styles */
+.save-notification {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.save-notification.success {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: var(--success-color);
+  border-left: 3px solid var(--success-color);
+}
+
+.save-notification.error {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--danger-color);
+  border-left: 3px solid var(--danger-color);
+}
+
+.save-notification svg {
+  margin-right: 8px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  .full-page-container {
+    padding: 15px;
+  }
+
+  .results-table-container {
+    padding: 18px;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 900px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bulk-actions-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .selected-count {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .email-button {
+    width: 100%;
+    margin: 4px 0;
+  }
+
+  .save-notification {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Empty state styling */
+.no-candidates {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  color: var(--text-secondary);
+}
+
+.no-candidates svg {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+/* Utility classes for text truncation */
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Summary text styling */
+td:nth-child(5) {
+  max-height: 80px;
+  overflow-y: auto;
+  line-height: 1.4;
+}
+
+/* new changes */
+/* ResultsTable.css */
+/* ... other styles ... */
+.error-row {
+  background-color: #fff3f3 !important; /* Light red, important to override highlight */
+}
+.error-row td {
+  opacity: 0.7;
+}
+.error-text {
+  color: #d9534f;
+  font-style: italic;
+  font-size: 0.9em;
+}
+.summary-cell {
+  max-width: 300px; /* Or your desired max-width */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Change to 'normal' or 'pre-wrap' if you want multiline */
+}
+.summary-cell:hover {
+  /* Optional: show full summary on hover */
+  white-space: normal;
+  overflow: visible;
+  word-break: break-word;
+}
+
+/* Responsive table */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+table {
+  width: 100%;
+  min-width: 800px; /* Set a min-width so table content doesn't break too early */
+  border-collapse: collapse;
+}
+
+/* Styles for action buttons for better layout */
+.bulk-actions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+.selected-count {
+  font-size: 0.9em;
+  color: #555;
+  margin-right: auto; /* Pushes other buttons to the right */
+}
+.action-button,
+.filter-toggle-button,
+.action-button-inline {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+  color: white;
+}
+.action-button.select-all {
+  background-color: #007bff;
+}
+.action-button.select-qualified {
+  background-color: #28a745;
+}
+.action-button.clear-selection {
+  background-color: #ffc107;
+  color: #212529;
+}
+.action-button.send-form {
+  background-color: #17a2b8;
+}
+.action-button.save-candidates {
+  background-color: #5cb85c;
+}
+
+.action-button:hover,
+.filter-toggle-button:hover {
+  opacity: 0.8;
+}
+.action-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.filter-toggle-button {
+  background-color: #6f42c1;
+}
+.filter-options-active {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+}
+.filter-options-active label {
+  font-size: 0.9em;
+}
+.filter-options-active input[type="range"] {
+  width: 150px;
+}
+
+.action-button-inline {
+  margin: 2px;
+  padding: 5px 8px;
+  font-size: 0.85em;
+}
+.send-form-inline {
+  background-color: #007bff;
+}
+.send-event-inline {
+  background-color: #6f42c1;
+}
+
+.no-results-message {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+.no-results-message .fa-file-alt {
+  font-size: 3em;
+  opacity: 0.5;
+  margin-bottom: 15px;
+}

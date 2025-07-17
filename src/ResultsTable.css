@@ -1,0 +1,374 @@
+/* ResultsTable.css - CoreOps.ai Theme (Additions/Adjustments) */
+
+/* --- Ensure base page container is set up (from previous FileUpload theming) --- */
+/* .coreops-page-container, .coreops-content-wrapper etc. should be defined globally or in App.css */
+
+/* Specific to Results Page */
+.coreops-page-container.results-page {
+  /* any page-specific overrides */
+}
+
+.coreops-results-table-container { /* The main container for table and controls */
+  width: 100%;
+}
+
+.coreops-main-header.results-sub-header {
+  background: var(--coreops-surface); /* Lighter header for results page */
+  color: var(--coreops-text-primary);
+  padding: 25px 0px; /* Adjust padding */
+  text-align: left;
+  border-bottom: 1px solid var(--coreops-border-color);
+  margin-bottom: 25px;
+  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0; /* Rounded top corners if content wrapper has bg */
+}
+.coreops-main-header.results-sub-header h1 {
+  margin: 0;
+  font-size: 1.8em; /* Slightly smaller than main app header */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--coreops-primary);
+}
+.coreops-main-header.results-sub-header .fa-list-alt {
+    color: var(--coreops-secondary);
+}
+
+.coreops-results-summary-global {
+  font-size: 0.9em;
+  color: var(--coreops-text-secondary);
+  margin-top: 8px;
+}
+
+/* --- Controls Panel (Filters & Bulk Actions) --- */
+.coreops-controls-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #f8fcff; /* Slightly different from main bg */
+  border: 1px solid var(--coreops-border-color);
+  border-radius: var(--border-radius-md);
+}
+
+@media (min-width: 992px) { /* Adjust breakpoint if needed */
+  .coreops-controls-panel {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+/* --- Filter Section --- */
+.coreops-filter-section {
+  /* Flex grow if needed */
+}
+.coreops-button.filter-toggle-button {
+  background-color: var(--coreops-primary); /* Use primary for filter toggle */
+  color: var(--coreops-light-text);
+}
+.coreops-button.filter-toggle-button:hover {
+  background-color: #103A5F; /* Darken primary */
+}
+.coreops-button.filter-toggle-button.active {
+  background-color: var(--coreops-secondary);
+}
+
+.coreops-filter-options-active {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: var(--coreops-surface);
+  border: 1px solid var(--coreops-border-color);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  animation: coreopsFadeIn 0.3s ease-out;
+}
+.coreops-filter-options-active label {
+  font-size: 0.9em;
+  color: var(--coreops-text-secondary);
+  font-weight: 500;
+}
+.coreops-filter-options-active input[type="range"] {
+  width: 180px;
+  cursor: pointer;
+  accent-color: var(--coreops-secondary);
+}
+.coreops-score-display {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--coreops-secondary);
+  min-width: 25px;
+  text-align: right;
+}
+.coreops-button-inline.reset-filter {
+    background-color: transparent;
+    color: var(--coreops-text-secondary);
+    padding: 5px;
+    border: 1px solid transparent;
+}
+.coreops-button-inline.reset-filter:hover {
+    color: var(--coreops-primary);
+    border-color: var(--coreops-border-color);
+}
+
+
+/* --- Bulk Actions Section --- */
+.coreops-bulk-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 992px) {
+  .coreops-bulk-actions-container {
+    align-items: flex-end;
+  }
+}
+.coreops-selected-count {
+  font-size: 0.9em;
+  color: var(--coreops-text-secondary);
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-align: left;
+}
+@media (min-width: 992px) {
+    .coreops-selected-count {
+        text-align: right;
+        margin-bottom: 10px;
+    }
+}
+.coreops-action-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start; /* Align buttons to start */
+}
+@media (min-width: 992px) {
+    .coreops-action-buttons-group {
+        justify-content: flex-end; /* Align buttons to end on larger screens */
+    }
+}
+
+/* Using existing .coreops-button styles, but can add specific ones */
+.coreops-button.coreops-button-success { background-color: #28a745; color: white; }
+.coreops-button.coreops-button-success:hover { background-color: #218838; }
+.coreops-button.coreops-button-warning { background-color: #ffc107; color: var(--coreops-text-primary); }
+.coreops-button.coreops-button-warning:hover { background-color: #e0a800; }
+.coreops-button.coreops-button-info { background-color: #17a2b8; color: white; }
+.coreops-button.coreops-button-info:hover { background-color: #138496; }
+
+.coreops-button.save-button.loading {
+    background-color: var(--coreops-accent);
+}
+.coreops-button.save-button.loading .fa-save { display: none; } /* Hide save icon when spinner shows */
+.coreops-button.save-button.loading .fa-spinner { margin-right: 8px; }
+
+
+/* --- Save Notifications --- */
+.coreops-save-notification {
+  padding: 12px 18px;
+  margin-top: 15px; /* Space from buttons */
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: coreopsFadeIn 0.3s ease-out;
+  width: 100%; /* Take full width of its container */
+  box-sizing: border-box;
+}
+.coreops-save-notification.success {
+  background-color: var(--coreops-success-bg);
+  color: var(--coreops-success-text);
+  border: 1px solid var(--coreops-success-text);
+}
+.coreops-save-notification.error {
+  background-color: var(--coreops-error-bg);
+  color: var(--coreops-error-text);
+  border: 1px solid var(--coreops-error-text);
+}
+
+/* --- Table Styling --- */
+.coreops-table-responsive-wrapper {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--coreops-border-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--coreops-surface);
+  margin-top: 20px; /* Space above table */
+  box-shadow: var(--box-shadow-light);
+}
+
+.coreops-results-table { /* Target table specifically if needed */
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.coreops-results-table th, .coreops-results-table td {
+  padding: 14px 16px; /* Increased padding */
+  text-align: left;
+  border-bottom: 1px solid var(--coreops-border-color);
+  vertical-align: middle;
+}
+
+.coreops-results-table thead th {
+  background-color: #f8f9fc; /* Slightly different header bg */
+  color: var(--coreops-primary); /* Primary color for header text */
+  font-weight: 600;
+  font-size: 0.95em;
+  text-transform: capitalize; /* Or uppercase if preferred */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.coreops-header-icon {
+  margin-right: 8px;
+  color: var(--coreops-secondary); /* Use secondary for icons */
+}
+
+.coreops-results-table tbody tr:hover {
+  background-color: #eef3f7; /* Lighter, bluer hover */
+}
+
+.coreops-results-table tbody tr.highlighted-row {
+  background-color: #d1eaff; /* Lighter blue for highlight */
+  /* border-left: 3px solid var(--coreops-accent); */ /* Optional accent border */
+}
+.coreops-results-table tbody tr.highlighted-row .coreops-td-score {
+  color: var(--coreops-primary); /* Darker color for score in highlighted row */
+  font-weight: 700;
+}
+
+.coreops-results-table tbody tr.error-row {
+  background-color: var(--coreops-error-bg) !important;
+  color: var(--coreops-error-text);
+}
+.coreops-results-table tbody tr.error-row td {
+  opacity: 0.8;
+}
+.coreops-error-text { /* For text within summary cell */
+  color: var(--coreops-error-text);
+  font-style: italic;
+  font-size: 0.9em;
+}
+.coreops-error-indicator-icon {
+    color: var(--coreops-error-text);
+    opacity: 0.7;
+}
+
+.coreops-checkbox { /* Style for checkboxes in table */
+  cursor: pointer;
+  transform: scale(1.1);
+  accent-color: var(--coreops-secondary);
+}
+
+.coreops-td-name { font-weight: 500; color: var(--coreops-primary); }
+.coreops-td-email { color: var(--coreops-text-secondary); word-break: break-all; }
+.coreops-td-score { font-weight: bold; font-size: 1.05em; color: var(--coreops-secondary); text-align: center;}
+.coreops-td-summary {
+  max-width: 300px;
+  min-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.5;
+  color: var(--coreops-text-secondary);
+}
+.coreops-td-summary:hover {
+  white-space: normal;
+  overflow: visible;
+  word-break: break-word;
+  background-color: var(--coreops-surface);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 5;
+  padding: 10px; /* Add padding on hover for readability */
+}
+
+.coreops-td-actions {
+    text-align: center; /* Center action buttons */
+}
+.coreops-button-inline {
+  padding: 7px 12px;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  color: var(--coreops-light-text);
+  margin: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 80px; /* Give buttons some minimum width */
+  justify-content: center;
+}
+.coreops-button-inline.send-form { background-color: var(--coreops-secondary); }
+.coreops-button-inline.send-form:hover { background-color: var(--coreops-accent); }
+.coreops-button-inline.send-event { background-color: #5D6D7E; } /* Muted purple/grey */
+.coreops-button-inline.send-event:hover { background-color: #4A5765; }
+
+.coreops-action-na {
+    font-size: 0.85em;
+    color: var(--coreops-text-secondary);
+    font-style: italic;
+}
+
+
+/* --- Loading & Empty States Styling --- */
+.coreops-message-container {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--coreops-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-light);
+  margin-top: 30px;
+}
+.coreops-message-container .fa-spinner,
+.coreops-message-container .fa-file-alt {
+  font-size: 3.5em;
+  color: var(--coreops-secondary);
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+.coreops-message-container p {
+  font-size: 1.2em;
+  color: var(--coreops-text-primary);
+  margin-bottom: 10px;
+}
+.coreops-message-container .empty-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.coreops-message-container .empty-subtitle {
+    font-size: 1em;
+    color: var(--coreops-text-secondary);
+    margin-bottom: 25px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.coreops-message-container .coreops-button {
+  margin-top: 15px;
+}
+
+.coreops-footer.results-sub-footer {
+    background-color: var(--coreops-background);
+    color: var(--coreops-text-secondary);
+    border-top: 1px solid var(--coreops-border-color);
+    margin-top: 30px;
+    padding: 25px;
+}
+
+
+/* --- Animations (ensure this is defined once, e.g., in global CSS or here) --- */
+@keyframes coreopsFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

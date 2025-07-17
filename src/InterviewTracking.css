@@ -1,0 +1,252 @@
+/* InterviewTracking.css - CoreOps.ai Theme */
+
+/* Assume :root variables (--coreops-primary, etc.) are defined globally */
+
+.coreops-page-container.interview-tracking-page {
+  /* Page-specific overrides if any */
+}
+
+/* Re-use .coreops-content-wrapper and .coreops-main-header.results-sub-header from global/other CSS */
+
+/* Tabs Navigation */
+.coreops-tabs-navigation {
+  display: flex;
+  border-bottom: 2px solid var(--coreops-border-color, #dde4eb);
+  margin-bottom: 25px;
+}
+
+.coreops-tab-button {
+  padding: 12px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  color: var(--coreops-text-secondary, #566573);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: -2px; /* Align bottom border with parent's border */
+}
+.coreops-tab-button:hover {
+  color: var(--coreops-primary, #0A2540);
+}
+.coreops-tab-button.active {
+  border-bottom-color: var(--coreops-secondary, #00A4CC);
+  color: var(--coreops-primary, #0A2540);
+  font-weight: 600;
+}
+.coreops-tab-button .svg-inline--fa { /* Icon in tab */
+  margin-right: 6px;
+}
+
+.coreops-tab-content {
+  padding-top: 10px; /* Space below tabs */
+}
+
+/* Section Titles within Tabs */
+.coreops-section-title.modern { /* More modern section title style */
+  font-size: 1.4em;
+  font-weight: 600;
+  color: var(--coreops-primary);
+  margin: 25px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--coreops-border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.coreops-section-title.modern .svg-inline--fa {
+  color: var(--coreops-secondary);
+}
+
+
+/* Overview Layout */
+.coreops-overview-layout {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to single column */
+  gap: 25px;
+}
+@media (min-width: 768px) {
+  .coreops-overview-layout {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive columns */
+  }
+}
+@media (min-width: 992px) {
+  .coreops-overview-layout {
+    grid-template-columns: 2fr 1fr; /* Example: Upcoming larger than recent */
+  }
+}
+
+
+/* Tracking Cards (Upcoming, Recent) */
+.coreops-tracking-card {
+  background-color: var(--coreops-surface, #fff);
+  border-radius: var(--border-radius-md, 8px);
+  padding: 20px;
+  box-shadow: var(--box-shadow-light, 0 4px 12px rgba(0,0,0,0.06));
+  margin-bottom: 15px;
+  border-left: 5px solid; /* Default, will be overridden by specific type */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.coreops-tracking-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-strong, 0 6px 15px rgba(0,0,0,0.1));
+}
+
+.coreops-tracking-card.upcoming {
+  border-left-color: var(--coreops-secondary, #00A4CC);
+}
+.coreops-tracking-card.recent {
+  border-left-color: var(--coreops-accent, #00C4FF); /* Different accent for recent */
+}
+
+.coreops-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.coreops-candidate-name-link { /* Re-using from SavedCandidates for consistency */
+  font-weight: 600;
+  font-size: 1.1em;
+  color: var(--coreops-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.coreops-candidate-name-link:hover {
+  color: var(--coreops-secondary);
+  text-decoration: underline;
+}
+
+.coreops-tracking-date, .coreops-update-date {
+  font-size: 0.85em;
+  color: var(--coreops-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.coreops-tracking-date .fa-calendar-alt, .coreops-update-date .fa-clock {
+  color: var(--coreops-secondary);
+}
+
+.coreops-card-body {
+  margin-bottom: 12px;
+  font-size: 0.95em;
+  display: flex; /* For status pill and email alignment */
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.coreops-candidate-email {
+    color: var(--coreops-text-secondary);
+    word-break: break-all;
+}
+
+.coreops-status-pill.small { /* For pills inside cards */
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: var(--coreops-light-text, #fff); /* Default, overridden by inline style */
+  text-transform: capitalize;
+}
+
+.coreops-card-footer {
+  text-align: right;
+  margin-top: 10px;
+}
+.coreops-profile-link { /* Re-using from SavedCandidates */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--coreops-secondary);
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.coreops-profile-link:hover {
+  color: var(--coreops-accent);
+  text-decoration: underline;
+}
+
+
+/* Candidates by Stage Grid */
+.coreops-stages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.coreops-stage-card-link {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+    display: block; /* Make the link take up the card space */
+}
+
+.coreops-stage-card {
+  background-color: var(--coreops-surface, #fff);
+  border-radius: var(--border-radius-md, 8px);
+  padding: 20px;
+  box-shadow: var(--box-shadow-light, 0 4px 12px rgba(0,0,0,0.06));
+  border-left: 5px solid; /* Color will be set by inline style */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.coreops-stage-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--box-shadow-strong, 0 8px 20px rgba(0,0,0,0.1));
+}
+
+.coreops-stage-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.coreops-stage-title {
+  font-size: 1.15em;
+  font-weight: 600;
+  color: var(--coreops-primary);
+  margin: 0;
+}
+.coreops-stage-count {
+  background-color: var(--coreops-border-color, #dde4eb);
+  color: var(--coreops-text-primary);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+.coreops-stage-card-footer {
+  font-size: 0.9em;
+  color: var(--coreops-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 15px;
+}
+
+/* Loading, Error, Empty States (reuse .coreops-message-container from global/other CSS) */
+.coreops-message-container { /* General container for these states */
+    /* Assuming this is defined globally from previous theming */
+}
+/* ... (other .coreops-message-container styles from previous answers) ... */
+
+
+.coreops-no-data-text { /* For messages within cards/sections */
+  font-size: 0.95em;
+  color: var(--coreops-text-secondary, #566573);
+  font-style: italic;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Footer (reuse from global/other CSS) */
+.coreops-footer.results-sub-footer {
+    /* Assuming this is defined globally */
+    margin-top: 40px;
+}

@@ -1,0 +1,322 @@
+/* CandidateProfile.css - CoreOps.ai Theme */
+
+/* Assume :root variables (--coreops-primary, etc.) are defined globally */
+
+.coreops-page-container.candidate-profile-page {
+  /* Specific page styles, inherits from global .coreops-page-container */
+}
+
+.coreops-content-wrapper { /* Ensure this is globally styled or define here */
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 25px;
+  background-color: var(--coreops-surface, #fff);
+  border-radius: var(--border-radius-md, 8px);
+  box-shadow: var(--box-shadow-light, 0 4px 12px rgba(0,0,0,0.06));
+}
+
+.coreops-profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--coreops-border-color, #dde4eb);
+}
+
+.coreops-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--coreops-secondary, #00A4CC);
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: var(--border-radius-sm, 4px);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.coreops-back-link:hover {
+  background-color: #e6f7ff; /* Light secondary hover */
+  color: var(--coreops-accent, #00C4FF);
+}
+.coreops-back-link .fa-chevron-left {
+  font-size: 0.9em;
+}
+
+.coreops-profile-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Sidebar and main content */
+  gap: 30px;
+}
+
+/* --- Sidebar --- */
+.coreops-profile-sidebar {
+  background-color: #f8f9fc; /* Slightly off-white for sidebar */
+  padding: 25px;
+  border-radius: var(--border-radius-md, 8px);
+  border: 1px solid var(--coreops-border-color, #dde4eb);
+  text-align: center;
+  height: fit-content; /* Sidebar height fits its content */
+  position: sticky; /* Make sidebar sticky */
+  top: 90px; /* Adjust based on your header height + some margin */
+}
+
+.coreops-profile-avatar-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--coreops-secondary, #00A4CC);
+  color: var(--coreops-light-text, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 10px rgba(0, 164, 204, 0.3);
+}
+.coreops-profile-avatar-icon {
+  font-size: 4em;
+}
+
+.coreops-candidate-name {
+  font-size: 1.6em;
+  color: var(--coreops-primary, #0A2540);
+  margin-bottom: 8px;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.coreops-candidate-status {
+  margin-bottom: 20px;
+}
+.coreops-status-pill.large { /* For sidebar */
+  padding: 6px 15px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--coreops-light-text, #fff);
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.coreops-contact-info {
+  text-align: left;
+  margin-bottom: 25px;
+}
+.coreops-info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.95em;
+  color: var(--coreops-text-secondary, #566573);
+}
+.coreops-info-icon {
+  color: var(--coreops-secondary, #00A4CC);
+  width: 16px; /* Fixed width for alignment */
+  text-align: center;
+}
+.coreops-info-item a {
+    color: var(--coreops-secondary);
+    text-decoration: none;
+    word-break: break-all;
+}
+.coreops-info-item a:hover {
+    text-decoration: underline;
+    color: var(--coreops-accent);
+}
+
+.coreops-score-card {
+    background: linear-gradient(135deg, var(--coreops-secondary) 0%, var(--coreops-accent) 100%);
+    color: var(--coreops-light-text);
+    padding: 20px;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.score-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1;
+}
+.score-label {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.score-icon-bg {
+    position: absolute;
+    right: -20px;
+    bottom: -15px;
+    font-size: 6em;
+    opacity: 0.15;
+    transform: rotate(-15deg);
+}
+
+
+/* --- Main Content --- */
+.coreops-profile-main-content {
+  /* Takes remaining space */
+}
+
+.coreops-profile-card {
+  background-color: var(--coreops-surface, #fff);
+  padding: 25px;
+  border-radius: var(--border-radius-md, 8px);
+  margin-bottom: 25px;
+  border: 1px solid var(--coreops-border-color, #dde4eb);
+  box-shadow: var(--box-shadow-light, 0 4px 12px rgba(0,0,0,0.06));
+}
+.coreops-card-title {
+  font-size: 1.3em;
+  color: var(--coreops-primary, #0A2540);
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--coreops-border-color, #dde4eb);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.coreops-card-title .fa-lightbulb,
+.coreops-card-title .fa-tools,
+.coreops-card-title .fa-history,
+.coreops-card-title .fa-graduation-cap {
+    color: var(--coreops-secondary);
+}
+
+.coreops-summary-text {
+  font-size: 1em;
+  line-height: 1.7;
+  color: var(--coreops-text-primary, #2c3e50);
+  white-space: pre-wrap; /* Preserve line breaks from summary */
+}
+
+.coreops-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.coreops-skill-tag {
+  background-color: #e6f7ff; /* Light secondary background */
+  color: var(--coreops-secondary, #00A4CC);
+  padding: 6px 12px;
+  border-radius: 15px; /* Pill shape */
+  font-size: 0.85em;
+  font-weight: 500;
+  border: 1px solid var(--coreops-secondary, #00A4CC);
+}
+
+.coreops-experience-total {
+    font-size: 1em;
+    color: var(--coreops-text-secondary);
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--coreops-border-color);
+}
+.coreops-experience-total strong {
+    color: var(--coreops-primary);
+    font-weight: 600;
+}
+
+.coreops-experience-list {
+  /* Container for multiple items */
+}
+.coreops-experience-item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dotted var(--coreops-border-color, #dde4eb);
+}
+.coreops-experience-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.coreops-item-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+.coreops-item-icon {
+    color: var(--coreops-secondary);
+    font-size: 1.1em;
+}
+.coreops-item-main-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--coreops-text-primary, #2c3e50);
+}
+.coreops-item-details {
+    padding-left: 26px; /* Align with title if icon is present */
+}
+.coreops-item-subtitle {
+  font-size: 1em;
+  color: var(--coreops-text-primary, #2c3e50);
+  margin: 0 0 5px 0;
+}
+.coreops-item-meta {
+  font-size: 0.9em;
+  color: var(--coreops-text-secondary, #566573);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.coreops-no-data-text {
+  font-size: 0.95em;
+  color: var(--coreops-text-secondary, #566573);
+  font-style: italic;
+}
+
+
+/* Loading, Error, Empty states (re-use from ResultsTable or SavedCandidates if desired) */
+.coreops-message-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--coreops-surface);
+    border-radius: var(--border-radius-md);
+    margin-top: 30px;
+}
+/* ... (other .coreops-message-container styles from previous answers) ... */
+
+
+.coreops-footer.results-sub-footer { /* Re-using class for consistency */
+    /* Assuming this is styled globally or from previous component CSS */
+    margin-top: 40px; /* Ensure space above footer */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 991px) { /* Adjust breakpoint for sidebar stack */
+  .coreops-profile-layout {
+    grid-template-columns: 1fr; /* Stack sidebar and main content */
+  }
+  .coreops-profile-sidebar {
+    position: static; /* Remove sticky positioning on stack */
+    margin-bottom: 30px;
+    /* max-width: 500px; */ /* Optional: constrain sidebar width when stacked */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+  }
+}
+
+@media (max-width: 767px) {
+  .coreops-content-wrapper {
+    padding: 15px;
+  }
+  .coreops-profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .coreops-profile-card {
+    padding: 20px;
+  }
+  .coreops-card-title {
+    font-size: 1.2em;
+  }
+}

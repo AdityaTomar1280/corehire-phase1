@@ -1,0 +1,10 @@
+applications:
+  - name: corehire-p1
+    memory: 256M
+cf logs corehire-p1 --recent
+
+    path: build
+    env:
+      NODE_ENV: production
+    routes:
+      -  route: https://corehire-p1.cfapps.ap11.hana.ondemand.com

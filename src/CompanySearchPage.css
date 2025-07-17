@@ -1,0 +1,253 @@
+/* CompanySearchPage.css - CoreOps.ai Theme */
+
+/* Assume :root variables (--coreops-primary, etc.) are defined globally */
+
+.coreops-page-container.company-search-page {
+  /* Specific page styles if any */
+}
+
+/* Re-use .coreops-content-wrapper and .coreops-main-header.results-sub-header */
+/* from global/other CSS or define them similar to other pages */
+
+.coreops-company-search-form {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f9fc; /* Light background for the form area */
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--coreops-border-color);
+}
+
+.coreops-search-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 700px; /* Control max width of search bar */
+  margin: 0 auto; /* Center it */
+}
+
+.coreops-search-icon-input {
+  font-size: 1.1em;
+  color: var(--coreops-text-secondary);
+  margin-left: 5px; /* Adjust if input has internal padding */
+}
+
+.coreops-search-input.large {
+  flex-grow: 1;
+  padding: 12px 15px;
+  font-size: 1.05em;
+  border: 1px solid var(--coreops-border-color);
+  border-radius: var(--border-radius-sm);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.coreops-search-input.large:focus {
+  outline: none;
+  border-color: var(--coreops-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 164, 204, 0.25);
+}
+
+.coreops-company-search-form .coreops-button-primary {
+  padding: 12px 25px; /* Match input height */
+  font-size: 1em;
+}
+
+/* --- Search Results Area --- */
+.coreops-company-search-results {
+  margin-top: 20px;
+}
+
+.coreops-message-container.instructional {
+  /* For initial message */
+  border-style: dashed;
+  border-color: var(--coreops-border-color);
+  background-color: transparent;
+  box-shadow: none;
+}
+.coreops-message-container.instructional .fa-search {
+  color: var(--coreops-text-secondary);
+  opacity: 0.6;
+}
+
+.coreops-results-count-title {
+  font-size: 1.2em;
+  color: var(--coreops-text-primary);
+  margin-bottom: 20px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--coreops-border-color);
+}
+.coreops-results-count-title strong {
+  color: var(--coreops-secondary);
+}
+
+.coreops-candidate-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  ); /* Responsive cards */
+  gap: 25px;
+}
+
+.coreops-candidate-card {
+  background-color: var(--coreops-surface);
+  border: 1px solid var(--coreops-border-color);
+  border-radius: var(--border-radius-md);
+  padding: 20px;
+  box-shadow: var(--box-shadow-light);
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between sections in a card */
+}
+.coreops-candidate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--box-shadow-strong);
+}
+
+.coreops-candidate-card .coreops-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to top */
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.coreops-candidate-name-title {
+  font-size: 1.25em;
+  color: var(--coreops-primary);
+  margin: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.coreops-candidate-name-title .fa-user-tie {
+  color: var(--coreops-secondary);
+}
+
+.coreops-profile-link.small {
+  font-size: 0.85em;
+  color: var(--coreops-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.coreops-profile-link.small:hover {
+  color: var(--coreops-accent);
+  text-decoration: underline;
+}
+
+.coreops-candidate-contact {
+  font-size: 0.9em;
+  color: var(--coreops-text-secondary);
+  margin: -5px 0 10px 0; /* Adjust spacing */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.coreops-candidate-contact .fa-envelope {
+  color: var(--coreops-text-secondary);
+}
+
+.coreops-card-section {
+  /* Spacing handled by card's main gap */
+}
+
+.coreops-card-section-title {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--coreops-text-primary);
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 6px;
+}
+.coreops-card-section-title .svg-inline--fa {
+  /* Icons in section titles */
+  color: var(--coreops-secondary);
+  font-size: 0.9em;
+}
+
+.coreops-candidate-summary {
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: var(--coreops-text-secondary);
+  max-height: 100px; /* Limit summary height */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ... if text overflows */
+  /* For multi-line ellipsis (webkit only, but graceful degradation) */
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Show up to 4 lines */
+  -webkit-box-orient: vertical;
+}
+.coreops-candidate-summary:hover {
+  /* Show full summary on hover */
+  max-height: none;
+  -webkit-line-clamp: unset;
+}
+
+.coreops-skills-list.compact {
+  /* Styles for skills in cards */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px; /* Smaller gap */
+}
+.coreops-skills-list.compact .coreops-skill-tag {
+  padding: 4px 10px; /* Smaller tags */
+  font-size: 0.8em;
+  /* Assuming .coreops-skill-tag is defined globally or from CandidateProfile.css */
+  /* background-color: #e6f7ff; color: var(--coreops-secondary); border: 1px solid var(--coreops-secondary); */
+}
+.coreops-skills-list.compact .coreops-skill-tag.more {
+  font-style: italic;
+  background-color: transparent;
+  border: none;
+  color: var(--coreops-text-secondary);
+}
+
+.coreops-experience-list-compact {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.9em;
+}
+.coreops-experience-item-compact {
+  margin-bottom: 6px;
+  color: var(--coreops-text-secondary);
+  line-height: 1.5;
+}
+.coreops-experience-item-compact strong {
+  color: var(--coreops-text-primary);
+  font-weight: 500;
+}
+.coreops-highlighted-company {
+  background-color: var(
+    --coreops-accent-light,
+    #cceeff
+  ); /* A light accent color */
+  color: var(--coreops-primary);
+  font-weight: bold;
+  padding: 1px 3px;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Loading, Error, Empty states (reuse .coreops-message-container from global/other CSS) */
+/* Ensure they are styled appropriately if not already done in global scope */
+.coreops-message-container {
+  /* ... (styles from previous response for loading/error/empty) ... */
+}
+
+/* Footer (reuse from global/other CSS) */
+.coreops-footer.results-sub-footer {
+  /* ... (styles from previous response) ... */
+}
